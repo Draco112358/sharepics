@@ -31,13 +31,14 @@
                 <li class="list-group-item personalbackground">
                     <div>Ultimo album inserito</div>
 
-                    <p><div class="col-lg-12 no-padding lib-item" data-category="view">
+                    <p>
+                        <div class="col-lg-12 no-padding lib-item" data-category="view">
                         <div class="lib-panel">
                             <div class="row box-shadow">
                                 <div class="col-lg-6 col-md-4 col-sm-4">
 
                                         <a href="{{route('gallery.albumphotos', $lastAlbum->id)}}">
-                                        <img class="img-fluid"  width="300" alt="{{$lastAlbum->album_name}}" src="{{asset($lastAlbum->path2)}}" >
+                                        <img class="img-fluid"  width="300" alt="{{$lastAlbum->album_name}}" src="{{asset($lastAlbum->path2)}}">
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-8 col-sm-8">
@@ -53,7 +54,7 @@
                         </div>
                     </div>
                     <div style="text-align: right">Utente: {{$lastAlbum->user->name}}</div>
-                    </p>
+                </p>
                 </li>
                 @if($immagine)
                 <li class="list-group-item personalbackground">
@@ -108,14 +109,14 @@
                         <div style="text-align: right">Utente: {{$ownerPhoto}}</div>
                     </div>
 
-                    </p>
+
                 </li>
                 @endif
             </ul>
         </div>
     </div>
     <div class="card-columns col-lg-6">
-    @foreach($albums as $album)
+    @forelse($albums as $album)
         <div class="card">
 
             <a href="{{route('gallery.albumphotos', $album->id)}}">
@@ -138,7 +139,9 @@
                 <p class="card-text"><small class="text-muted">{{$album->created_at->format('d/m/Y')}}</small></p>
 
         </div>
-    @endforeach
+        @empty
+        Nessun album condiviso ancora.
+    @endforelse
 @auth
             <div aria-colspan="5">{{$albums->links()}}</div>
 @endauth
