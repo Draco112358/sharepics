@@ -19,6 +19,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <a href="{{route('albums.list')}}" class="btn btn-success">Indietro</a>
-        <a href="#" class="btn btn-success">Immagini album</a>
+        {{--<a href="#" class="btn btn-success">Immagini album</a>--}}
     </form>
 @stop
