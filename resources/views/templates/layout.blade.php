@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>@yield('title', 'Home')</title>
+    <title>@yield('title', 'SharePics')</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -84,6 +84,7 @@
                 </li>
             @endguest
         </ul>
+    </div>
 </nav>
 
 <!---------------------------------- CONTENUTO ------------------------------------->
