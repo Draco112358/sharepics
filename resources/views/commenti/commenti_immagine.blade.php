@@ -46,27 +46,29 @@
             <h2>Commenti ({{$numeroCommenti}}) <div class="pull-right"><a href="#" id="addacomment" class="btn btn-primary">Commenta e vota</a> </div></h2>
 
         <div class="row" id="addcomment" style="display: none;">
+
             <form method="POST" action="{{route('comments.store')}}">
                 @csrf
                 <input name="photoID" type="hidden" value="{{$immagine->id}}">
-                <table>
-                    <tr>
-                        <td>
+                <div class="table">
+                    <div class="row">
+                        <div class="col-md-7">
                     <textarea required name="nuovoCommento" class="form-control" placeholder="Comment content..."></textarea><br/>
-                        </td>
-                        <td>
-                        <div class="rating">
+                        </div>
+                        <div class="col-md-5 rating">
+
                             <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stelle</label>
                             <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Rocks!">4 stelle</label>
                             <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Pretty good">3 stelle</label>
                             <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Pretty good">2 stelle</label>
                             <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Meh">1 stella</label>
+
                         </div>
-                        </td>
-                    </tr>
-                </table>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Invia</button>
             </form>
+
         </div>
         <hr>
         @forelse($commenti as $commento)
