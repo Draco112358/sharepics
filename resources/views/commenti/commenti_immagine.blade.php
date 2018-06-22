@@ -43,8 +43,9 @@
 
         <div class="col-lg-8">
             @include('components.errors_input')
+            <div class="row">
             <h2>Commenti ({{$numeroCommenti}}) <div class="pull-right"><a href="#" id="addacomment" class="btn btn-primary">Commenta e vota</a> </div></h2>
-
+            </div>
         <div class="row" id="addcomment" style="display: none;">
 
             <form method="POST" action="{{route('comments.store')}}">
