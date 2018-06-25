@@ -142,7 +142,7 @@ class AlbumsController extends Controller
                 \File::deleteDirectory(Storage::disk('public')->path($images_thumbs));
             }
         }
-        return ''.$res;   // abbiamo concatenato una stringa, dovendo ritornare una stringa per funzionare.
+        return ''.$res;   // abbiamo concatenato una stringa, dovendo ritornare una stringa per il javascript del template.
 
         /*
          *    ELOQUENT tramite querybuilder
