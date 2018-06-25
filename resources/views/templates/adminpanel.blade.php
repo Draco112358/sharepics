@@ -111,7 +111,7 @@
             <li class="breadcrumb-item active">{{Route::currentRouteName()}}</li>
         </ol>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="overflow: auto">
               @yield('content')
             </div>
         </div>
