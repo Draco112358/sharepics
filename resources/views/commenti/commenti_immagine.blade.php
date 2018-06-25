@@ -53,10 +53,10 @@
                 <input name="photoID" type="hidden" value="{{$immagine->id}}">
                 <div class="table">
                     <div class="row">
-                        <div class="col-lg-8 col-md-8">
+                        <div class="col-lg-7 col-md-7">
                     <textarea required name="nuovoCommento" class="form-control" placeholder="Comment content..."></textarea><br/>
                         </div>
-                        <div class="col-lg-4 col-md-4 rating">
+                        <div class="col-lg-5 col-md-5 rating">
 
                             <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stelle</label>
                             <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Rocks!">4 stelle</label>
