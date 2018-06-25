@@ -80,10 +80,10 @@
             </div>
             <div class="table">
                 <div class="row">
-                    <div class="col-md-11">
+                    <div class="col-md-11 col-sm-11">
                         <p>{{$commento->comment}}</p>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1 col-sm-1">
                         <a href="{{route('comments.destroy', $commento->id)}}" class="btn btn-dark" @if(Auth::user()->isAdmin()) style="display: block" @else style="display: none" @endif>
                             <span title="Elimina messaggio" class="fa fa-minus"></span>
                         </a>
