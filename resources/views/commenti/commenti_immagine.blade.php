@@ -78,18 +78,18 @@
                 <br class="head">
                 <small><strong class='user'>{{$commento->commented->name}} </strong>{{$commento->created_at->format('d/m/Y H:i')}} </small>
             </div>
-            <table>
-                <tr>
-                    <td>
+            <div class="table">
+                <div class="row">
+                    <div class="col-md-11">
                         <p>{{$commento->comment}}</p>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="col-md-1">
                         <a href="{{route('comments.destroy', $commento->id)}}" class="btn btn-dark" @if(Auth::user()->isAdmin()) style="display: block" @else style="display: none" @endif>
                             <span title="Elimina messaggio" class="fa fa-minus"></span>
                         </a>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+            </div>
         </div>
         @empty
             Nessun commento.
