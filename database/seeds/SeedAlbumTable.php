@@ -12,7 +12,7 @@ class SeedAlbumTable extends Seeder
     public function run()
     {
        factory(App\Models\Album::class, 10)->create()->each(function ($album){
-           $cats = \App\Models\Category::inRandomOrder()->take(3)->pluck('id');
+           $cats = \App\Models\Category::inRandomOrder()->take(2)->pluck('id');
            $cats->each(function ($cat_id)use($album){
                 \App\Models\AlbumsCategory::create([
                     'album_id' => $album->id,

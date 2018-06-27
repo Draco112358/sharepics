@@ -5,6 +5,7 @@ use App\User;
 use App\Models\Album;
 use App\Models\Photo;
 use App\Models\Category;
+use App\Models\AlbumsCategory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
         Album::truncate();
         Photo::truncate();
         Category::truncate();
+        AlbumsCategory::truncate();
+
 
 
         $this->call(SeedUserTable::class);
