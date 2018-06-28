@@ -56,12 +56,12 @@
                     <div style="text-align: right">Utente: {{$lastAlbum->user->name}}</div>
                 </p>
                 </li>
-                {{--
+
                 @if($immagine)
                 <li class="list-group-item personalbackground">
                     <div>Foto più votata dagli utenti</div>
 
-                    {{--<div style="text-align: right">Valutazione: {{$valutazione}} / 5</div>
+                    {{--<div style="text-align: right">Valutazione: {{$valutazione}} / 5</div>--}}
                     <div class="col-lg-12 no-padding lib-item" data-category="view">
                         <div class="lib-panel">
                             <div class="row box-shadow">
@@ -112,7 +112,7 @@
 
 
                 </li>
-                @endif--}}
+                @endif
             </ul>
         </div>
     </div>
