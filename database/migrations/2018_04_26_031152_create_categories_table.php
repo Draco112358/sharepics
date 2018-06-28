@@ -24,6 +24,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('album_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->foreign('album_id')->on('albums')->references('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->on('categories')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->unique(['album_id', 'category_id']);
             $table->timestamps();
         });
