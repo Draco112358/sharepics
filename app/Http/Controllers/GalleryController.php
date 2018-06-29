@@ -24,7 +24,7 @@ class GalleryController extends Controller
             $albums = $collections->first();
         }
         $categories = Category::withCount('albums')->get();
-        if ($dati['photoMaxRated']) {
+        if (isset($dati['photoMaxRated'])) {
             return view('gallery.gallery-albums')
                 ->with([
                     'albums' => $albums,
@@ -117,14 +117,16 @@ class GalleryController extends Controller
             foreach ($photos as $photo) {
                 $photoRate[$photo->id] = $photo->averageRate() ? $photo->averageRate() : 0.0;
             }
-            $photoMaxRated = Photo::findOrFail(array_keys($photoRate, max($photoRate)))[0];
-            $maxRating = round($photoMaxRated->averageRate(), 1);
-            if ($maxRating != 0.0){
-                $data['photoMaxRated'] = $photoMaxRated;
-                $data['maxRating'] = $maxRating;
-                $data['ownerPhoto'] = $data['photoMaxRated']->user->name;
-            }
+            if (isset($photoRate)) {
+                $photoMaxRated = Photo::findOrFail(array_keys($photoRate, max($photoRate)))[0];
+                $maxRating = round($photoMaxRated->averageRate(), 1);
 
+                if ($maxRating != 0.0) {
+                    $data['photoMaxRated'] = $photoMaxRated;
+                    $data['maxRating'] = $maxRating;
+                    $data['ownerPhoto'] = $data['photoMaxRated']->user->name;
+                }
+            }
         }
 
         return $data;

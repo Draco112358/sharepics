@@ -57,7 +57,7 @@
                 </p>
                 </li>
 
-                @if($immagine)
+                @if(isset($immagine))
                 <li class="list-group-item personalbackground">
                     <div>Foto più votata dagli utenti</div>
 
