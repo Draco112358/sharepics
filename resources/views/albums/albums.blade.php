@@ -6,7 +6,12 @@
 @stop
 @section('content')
     <div class="row">
-        @include('components.infoutente')
+        @include('components.infoutente',
+                    [
+                        'user' => $user,
+                        'numeroAlbums' => $numeroAlbums,
+                        'lastAlbum' => $lastAlbum
+                    ])
         <div class="col-lg-8">
     <h1>ALBUMS</h1>
     @if(session()->has('message'))
