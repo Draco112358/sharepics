@@ -11,15 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class GalleryController extends Controller
 {
+    protected $numAlbumForGuest = 9;
+
+
     public function index(){
         $dati = $this->statistics();
-        $numDefault = 9;
 
-        if(Auth::check() || $numDefault > $dati['numAlbums']) {
+
+        if(Auth::check() || $this->numAlbumForGuest > $dati['numAlbums']) {
             $albums = Album::has('user')->latest('id')->with('categories')->paginate(9);
         }else{
             $collections = Album::has('user')->latest('album_name')->with('categories')->get();
-            $collections = $collections->chunk($numDefault);
+            $collections = $collections->chunk($this->numAlbumForGuest);
 
             $albums = $collections->first();
         }
@@ -50,6 +53,14 @@ class GalleryController extends Controller
     }
 
     public function showAlbumPhotos(Album $album){
+        if (!Auth::check()){
+            $collections = Album::has('user')->latest('album_name')->with('categories')->get();
+            $collections = $collections->chunk($this->numAlbumForGuest);
+            $albums = $collections->first();
+            if (!$albums->contains('id', $album->id)){
+                abort(401);
+            }
+        }
         $user = $album->user;
          $numPhotos= count($album->photos);
          $numDefault = 15;
