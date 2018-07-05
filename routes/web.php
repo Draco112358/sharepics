@@ -62,7 +62,7 @@ Route::group(
     ],
     function (){
         Route::get('/', 'GalleryController@index')->name('gallery');
-        Route::get('/album/{album}/photos', 'GalleryController@showAlbumPhotos')->name('gallery.albumphotos');
+        Route::get('/album/{album}/photos', 'GalleryController@showAlbumPhotos')->where('album', '[0-9]+')->name('gallery.albumphotos');
         Route::get('/category/{id}', 'GalleryController@showCategoryAlbums')->name('gallery.category');
 });
 
