@@ -265,7 +265,9 @@ class PhotosController extends Controller
 
 
             $req->file('img_path')->storeAs(env('IMG_DIR') . '/' . $photo->album_id, $fileName, 'public');
-            Storage::disk('public')->makeDirectory(env('IMG_THUMBS_DIR') . '/' . $photo->album_id);
+            if (!\File::isDirectory(Storage::disk('public')->path(env('IMG_THUMBS_DIR') . '/' . $photo->album_id))) {
+                Storage::disk('public')->makeDirectory(env('IMG_THUMBS_DIR') . '/' . $photo->album_id);
+            }
             $img->save(storage_path('app/public/' . env('IMG_THUMBS_DIR') . '/' . $photo->album_id . '/' . $fileName), 80);
             $photo->img_path = env('IMG_DIR') . '/' . $photo->album_id . '/' . $fileName;
             $photo->img_thumbnail = env('IMG_THUMBS_DIR') . '/' . $photo->album_id . '/' . $fileName;
