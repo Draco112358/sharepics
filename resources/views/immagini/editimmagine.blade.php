@@ -19,7 +19,7 @@
     @if($photo->id)
         <form action="{{route('photos.update', $photo->id)}}" method="POST" enctype="multipart/form-data">
 
-        {{method_field('PATCH')}}
+        @method('patch')
     @else
         <form action="{{route('photos.store')}}" method="POST" enctype="multipart/form-data">
 
