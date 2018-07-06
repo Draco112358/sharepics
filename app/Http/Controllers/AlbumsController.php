@@ -457,8 +457,8 @@ class AlbumsController extends Controller
         $img2 = Image::make($file->getRealPath())->resize(300, null, function ($constraint){
             $constraint->aspectRatio();
         });
-                $fileName = $id . '.' . $file->extension();
-                $fileName2 = $id . '_2.' . $file->extension();
+                $fileName = $id . '.jpeg';
+                $fileName2 = $id . '_2.jpeg';
                 $img->save(storage_path('app/public/'.env('ALBUM_THUMBS_DIR').'/'.$fileName),80);
                 $img2->save(storage_path('app/public/'.env('ALBUM_THUMBS_DIR').'/'.$fileName2),80);
                 //$file->storeAs(env('ALBUM_THUMBS_DIR'), $fileName, 'public');
