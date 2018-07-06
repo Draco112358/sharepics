@@ -252,7 +252,7 @@ class AlbumsController extends Controller
         $album->album_name = \request()->input('name');
         $album->description = \request()->input('description');
         //$album->user_id = $req->user()->id;
-        $this->thumbsProcessing($id, $req, $album);
+        $this->manageThumbs($id, $req, $album);
         $res = $album->save();
         $album->categories()->sync($req->categories);
 
@@ -355,7 +355,7 @@ class AlbumsController extends Controller
                 $album->categories()->attach($request->input('categories'));  //con attach andiamo a sfruttare la connessione many to many
                                                                                    // per inserire le categorie  selezionate nella tabella pivot album_category
             }
-            if ($this->thumbsProcessing($album->id, $request,$album)){
+            if ($this->manageThumbs($album->id, $request,$album)){
                 $album->save();
             }
         }
@@ -444,7 +444,7 @@ class AlbumsController extends Controller
      * @param Request $req
      * @param $album
      */
-    public function thumbsProcessing($id, Request $req, &$album)
+    public function manageThumbs($id, Request $req, &$album)
     {
         if (!$req->hasFile('album_thumbnail') || !$req->file('album_thumbnail')->isValid()){
             return false;
