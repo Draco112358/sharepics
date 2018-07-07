@@ -410,6 +410,8 @@ class AlbumsController extends Controller
     }
 
     public function showImages(Album $id){
+        $this->authorize('view', $id);
+
         $albums = Auth::user()->albums()->orderBy('id', 'desc')->withCount('photos')->with('categories');
         //$queryBuilder = Album::orderBy('id', 'desc')->withCount('photos')
           //  ->with('categories')->where('user_id', Auth::user()->id);
