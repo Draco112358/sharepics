@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\CategoryFormReq;
 use App\Http\Controllers\Controller;
 use App\Models\Album;
 use App\Models\Category;
@@ -38,7 +38,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(CategoryFormReq $request)
     {
         $category = new Category();
         $category->name = $request->input('name');
@@ -75,7 +75,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request)
+    public function update(CategoryFormReq $request)
     {
         $category = Category::find($request->input('catID'));
         $category->name = $request->input('name');

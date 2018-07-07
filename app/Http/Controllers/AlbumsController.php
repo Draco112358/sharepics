@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AlbumEditRequest;
-use App\Http\Requests\AlbumRequest;
+use App\Http\Requests\AlbumFormReq;
 use App\Models\Album;
 use App\Models\Category;
 use App\Models\Photo;
@@ -336,7 +336,7 @@ class AlbumsController extends Controller
         }
     }
 
-    public function save(AlbumRequest $request){
+    public function save(AlbumFormReq $request){
 
         /*
          *    ELOQUENT
