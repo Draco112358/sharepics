@@ -41,7 +41,7 @@ Route::group(
     Route::patch('/albums/{id}', 'AlbumsController@store')->name('album.store');
     Route::post('/albums', 'AlbumsController@save')->name('album.save');
 
-    Route::get('/albums/{id}/images', 'AlbumsController@showImages')->name('album.showimages')
+    Route::get('/albums/{id}/photos', 'AlbumsController@showPhotos')->name('album.showimages')
         ->where('id', '[0-9]+');
 
 
