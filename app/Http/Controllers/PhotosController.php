@@ -238,7 +238,7 @@ class PhotosController extends Controller
     }
 
 
-    public function fileProcessing(Photo $photo, Request $req = null)
+    protected function fileProcessing(Photo $photo, Request $req = null)
     {
 
         if (!$req){
