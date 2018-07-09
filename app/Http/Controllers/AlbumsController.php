@@ -409,7 +409,7 @@ class AlbumsController extends Controller
         */
     }
 
-    public function showPhotos(Album $id){
+    protected function showPhotos(Album $id){
         $this->authorize('view', $id);
 
         $albums = Auth::user()->albums()->orderBy('id', 'desc')->withCount('photos')->with('categories');
