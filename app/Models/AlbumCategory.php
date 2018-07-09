@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AlbumCategory extends Model
 {
-    protected $table = 'album_category'; // non necessaria avendo rispettato la convenzione dei nomi
+    protected $table = 'album_category';
 
 
 
