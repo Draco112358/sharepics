@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Album;
 use App\Models\Photo;
+use App\Policies\AlbumPolicy;
 use App\Policies\PhotoPolicy;
 use App\User;
 use Illuminate\Support\Facades\Gate;
@@ -17,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Models\Album' => 'App\Policies\AlbumPolicy',
+        Album::class => AlbumPolicy::class,
         Photo::class => PhotoPolicy::class,
     ];
 
