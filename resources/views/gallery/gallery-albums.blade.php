@@ -31,7 +31,7 @@
                 <li class="list-group-item personalbackground">
                     <div>Ultimo album inserito</div>
 
-                    <p>
+                    <div>
                         <div class="col-lg-12 no-padding lib-item" data-category="view">
                         <div class="lib-panel">
                             <div class="row box-shadow">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div style="text-align: right">Utente: {{$lastAlbum->user->name}}</div>
-                </p>
+                </div>
                 </li>
 
                 @if(isset($immagine))
