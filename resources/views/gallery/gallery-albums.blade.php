@@ -154,8 +154,8 @@
                 <h4 class="panel-title">Categorie</h4>
             </div>
             <div class="box box-shadow">
-            <ul class="list-group">
                 @auth
+                    <ul class="list-group">
                 @forelse($cats as $category)
                     <li class="list-group-item categories-list-item">
                         <a href="{{route('gallery.category', $category->id)}}">{{$category->name}}</a>
@@ -164,10 +164,10 @@
                 @empty
                     Nessuna categoria presente.
                 @endforelse
+                    </ul>
                 @else
                     Devi essere registrato per vedere le categorie.
                 @endauth
-            </ul>
             </div>
         </div>
     </div>
