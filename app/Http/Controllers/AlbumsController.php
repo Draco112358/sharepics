@@ -419,7 +419,7 @@ class AlbumsController extends Controller
 
 
         //$images = Photo::where('album_id', $id->id)->orderBy('id', 'desc ')->paginate(15);
-        $images = $id->photos()->orderBy('id', 'desc')->paginate(15);
+        $images = $id->photos()->orderBy('id', 'desc')->paginate(8);
 
         if ($numAlbums > 0) {
             $ultimoAlbum = $albums->first();
