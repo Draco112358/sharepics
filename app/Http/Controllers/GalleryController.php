@@ -117,7 +117,7 @@ class GalleryController extends Controller
 
     private function statistics(){
         $data['numUtenti'] = User::count();
-        $data['numAlbums'] = Album::count();
+        $data['numAlbums'] = Album::has('user')->count();
 
         $data['lastAlbum'] = Album::with('user')->orderBy('id', 'desc')->first();
 
