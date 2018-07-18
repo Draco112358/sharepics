@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use App\Models\Category;
 use App\Models\Photo;
+use App\Policies\AlbumPolicy;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -119,7 +120,7 @@ class GalleryController extends Controller
         $data['numUtenti'] = User::count();
         $data['numAlbums'] = Album::has('user')->count();
 
-        $data['lastAlbum'] = Album::with('user')->orderBy('id', 'desc')->first();
+        $data['lastAlbum'] = Album::has('user')->with('user')->orderBy('id', 'desc')->first();
 
         $photos = Photo::get()->filter(function ($photo){
             return $photo->user != null;
