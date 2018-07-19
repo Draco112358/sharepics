@@ -111,10 +111,10 @@
         $('document').ready(function () {
 
             $('div.alert').fadeOut(6000);
-            $('table').on('click', 'a.btn-dark', function (ele) {
+            $('.table').on('click', 'a.btn-dark', function (ele) {
                 ele.preventDefault();
                 var Message = $(this).attr('href');
-                var tr = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+                var tr = this.parentNode.parentNode.parentNode.parentNode;
                 if (confirm('Sicuro di voler eliminare il messaggio?')) {
                     $.ajax(Message,
                         {
