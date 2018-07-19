@@ -114,7 +114,7 @@
 
                 var Categories = $(this).attr('href');
 
-                var tr = this.parentNode.parentNode.parentNode.parentNode;
+                var tr = this.parentNode.parentNode.parentNode;
                 $.ajax(Categories,
                     {
 
